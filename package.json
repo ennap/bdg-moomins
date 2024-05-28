@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@angular/platform-browser": "^17.3.9",
     "@svgdotjs/svg.js": "^3.2.0"
   }
 }
