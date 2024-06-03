@@ -1,0 +1,6 @@
+<p>progress-bar works!</p>
+<svg [attr.height]="height" [attr.width]="width">
+    <line x1="0" y1="0" [attr.x2]="width" y2="0" class="base"/>
+    <line [attr.x1]="width" y1="0" [attr.x2]="width" [attr.y2]="height" class="base"/>
+    <line x1="0" y1="0" [attr.x2]="(votes/total_votes) * width" y2="0" style="stroke:red;stroke-width:8"/>
+</svg>
