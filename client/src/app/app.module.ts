@@ -19,6 +19,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ImageButtonComponent } from './image-button/image-button.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { BracketComponent } from './bracket/bracket.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     TaskComponent,
     TaskDialogComponent,
     ImageButtonComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    BracketComponent
   ],
   imports: [
     BrowserModule,

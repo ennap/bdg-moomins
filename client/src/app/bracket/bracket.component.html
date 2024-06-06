@@ -1,0 +1,19 @@
+<!-- <div>
+    <app-image-button src="assets/fairly-odd.jpeg"></app-image-button>
+    <app-image-button src="assets/avatar.jpeg" class = "test"></app-image-button>
+    <app-progress-bar></app-progress-bar>
+  </div> -->
+
+<div *ngFor="let round of bracket.getBracket(); index as i">
+  Round {{i + 1}}
+  <div *ngFor="let match of round; index as j">
+    <div *ngFor="let item of match.getMatch(); index as k">
+      <button [disabled]="i!=current_round ||  j!=current_match"(click)="onClick(k)">
+        {{item}}
+      </button>
+    </div>
+    ({{match.getVotes()}})
+
+  </div>
+  -------
+</div>

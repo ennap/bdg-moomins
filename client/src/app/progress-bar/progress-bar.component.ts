@@ -1,13 +1,37 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss']
 })
-export class ProgressBarComponent {
+export class ProgressBarComponent implements OnInit{
   width:number = 100;
   height:number = 50;
-  total_votes:number = 4;
+
+  match_total:number = 4;
   votes:number = 1;
+
+  h_value:number = 0;
+  v_value:number = 0;
+
+
+  ngOnInit(): void {
+    this.calculate_vals();
+  }
+
+  calculate_vals() {
+    var vote_percent = this.votes/this.match_total;
+    var vote_length = vote_percent * (this.width + this.height);
+
+    if (vote_length <= this.width) {
+      this.h_value = vote_length;
+    }
+    else {
+      this.h_value = this.width;
+      this.v_value = vote_length - this.width;
+    }
+
+  }
+
 }
