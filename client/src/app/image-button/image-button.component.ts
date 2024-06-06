@@ -7,4 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ImageButtonComponent{
   @Input() src:string = "";
+  @Input() x:string = "0%";
+  @Input() y:string = "0%";
 }
