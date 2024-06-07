@@ -48,7 +48,7 @@ export class BracketComponent implements OnInit {
     }
   }
 
-  // for now hard-coded, ideally responsive (this function would calculate positions based on window size)
+  // for now hard-coded, but would be responsive ideally (this function would calculate positions based on window size)
   calculatePositions(){
     var positions:Array<number[][][]> = [];
 
@@ -81,13 +81,13 @@ export class BracketComponent implements OnInit {
     var round_2 = []
     // round 2, match 1
     round_2.push(
-      [[302, 196], 
+      [[302, 193], 
       [302, 578]]
     )
 
     // round 2, match 2
     round_2.push(
-      [[979, 196],
+      [[979, 193],
       [979, 578]]
     )
     positions.push(round_2)
@@ -103,6 +103,60 @@ export class BracketComponent implements OnInit {
     // // winning item
     positions.push([[[706, 387]]])
 
+    return positions;
+  }
+
+  // for now hard-coded, but would be responsive ideally (this function would calculate bracket positions based on window size)
+  // array is ordered as follows: x, y, w, h, direction
+  calculateBracketPositions() {
+    var positions:Array<{ x: number; y: number; width: number; height: number; down: boolean; right: boolean;}[][]> = [];
+
+    var round_1 = [];
+
+    //round 1, match 1
+    round_1.push([
+      {'x':266, 'y':162.95, 'width':101, 'height':30.05, 'down':true, 'right': true},
+      {'x':266, 'y':323, 'width':101, 'height':30.05, 'down':false, 'right': true}
+    ])
+    //round 1, match 2
+    round_1.push([
+      {'x':266, 'y':548.5, 'width':101, 'height':30.05, 'down':true, 'right': true},
+      {'x':266, 'y':707.16, 'width':101, 'height':30.05, 'down':false, 'right': true}
+    ])
+    //round 1, match 3
+    round_1.push([
+      {'x':1045, 'y':162.95, 'width':101, 'height':30.05, 'down':true, 'right': false},
+      {'x':1045, 'y':323, 'width':101, 'height':30.05, 'down':false, 'right': false}
+    ])
+    //round 1, match 4
+    round_1.push([
+      {'x':1045, 'y':548.5, 'width':101, 'height':30.05, 'down':true, 'right': false},
+      {'x':1045, 'y':707.16, 'width':101, 'height':30.05, 'down':false, 'right': false}
+    ])
+
+    positions.push(round_1);
+
+    var round_2 = [];
+    //round 2, match 1
+    round_2.push([
+      {'x':432, 'y':259.98, 'width':50, 'height':127.68, 'down':true, 'right': true},
+      {'x':432, 'y':516.33, 'width':50, 'height':127.68, 'down':false, 'right': true}
+    ])
+    //round 2, match 2
+    round_2.push([
+      {'x':929, 'y':259.98, 'width':50, 'height':127.68, 'down':true, 'right': false},
+      {'x':929, 'y':516.33, 'width':50, 'height':127.68, 'down':false, 'right': false}
+    ])
+
+    positions.push(round_2);
+
+    var round_3 = [];
+    round_3.push([
+      {'x':550, 'y':452.5, 'width':92, 'height':4, 'down':true, 'right': true},
+      {'x':770, 'y':452.5, 'width':92, 'height':4, 'down':false, 'right': false}
+    ])
+    positions.push(round_3);
+    
     return positions;
   }
 }

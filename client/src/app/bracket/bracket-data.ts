@@ -24,6 +24,10 @@ export class BracketData {
         return this.bracket_data;
     }
 
+    getMatchVotes(round: number, match: number){
+        this.bracket_data[round][match].getVotes();
+    }
+
     updateVotes(round_num: number, match_num: number, char_num: number, votes: [number, number]){
         this.bracket_data[round_num][match_num].updateVotes(char_num, votes);
     }

@@ -7,6 +7,14 @@
 <div *ngFor="let round of bracket.getBracket(); index as i">
   <div *ngFor="let match of round; index as j">
     <div *ngFor="let item of match.getMatch(); index as k">
+      <app-progress-bar 
+        [width]="calculateBracketPositions()[i][j][k].width" 
+        [height]="calculateBracketPositions()[i][j][k].height" 
+        [x]="calculateBracketPositions()[i][j][k].x" 
+        [y]="calculateBracketPositions()[i][j][k].y" 
+        [down]="calculateBracketPositions()[i][j][k].down" 
+        [right]="calculateBracketPositions()[i][j][k].right">
+      </app-progress-bar>
       <app-image-button [src]="item" (click)="onClick(k)" [x]="calculatePositions()[i][j][k][0] + 'px'" [y]="calculatePositions()[i][j][k][1] + 'px'"></app-image-button>
       <!-- <button [disabled]="i!=current_round ||  j!=current_match"(click)="onClick(k)">
         {{item}}
@@ -14,5 +22,3 @@
     </div>
   </div>
 </div>
-
-<app-progress-bar></app-progress-bar>

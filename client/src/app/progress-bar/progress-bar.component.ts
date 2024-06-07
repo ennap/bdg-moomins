@@ -8,14 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProgressBarComponent implements OnInit{
   @Input() width:number = 100;
   @Input() height:number = 50;
+  @Input() x:number = 0;
+  @Input() y:number = 0;
 
   @Input() match_total:number = 8;
   @Input() votes:number = 2;
 
-  @Input() color:string = 'blue';
+  @Input() color:string = 'FF8C42';
 
-  // determines direction of bracket; true means winning item is below current item, false means winning item is above
+  // down and right determine direction of bracket
   @Input() down:boolean = true;
+  @Input() right:boolean = true;
 
   h_value:number = 0;
   v_value:number = 0;
