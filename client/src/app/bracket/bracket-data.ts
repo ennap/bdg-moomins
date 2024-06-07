@@ -24,8 +24,8 @@ export class BracketData {
         return this.bracket_data;
     }
 
-    getMatchVotes(round: number, match: number){
-        this.bracket_data[round][match].getVotes();
+    getCharVote(round: number, match: number, item: number) {
+        return this.bracket_data[round][match].getVotes()[item];
     }
 
     updateVotes(round_num: number, match_num: number, char_num: number, votes: [number, number]){
