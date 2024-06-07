@@ -9,8 +9,13 @@ export class ProgressBarComponent implements OnInit{
   @Input() width:number = 100;
   @Input() height:number = 50;
 
-  @Input() match_total:number = 4;
-  @Input() votes:number = 1;
+  @Input() match_total:number = 8;
+  @Input() votes:number = 2;
+
+  @Input() color:string = 'blue';
+
+  // determines direction of bracket; true means winning item is below current item, false means winning item is above
+  @Input() down:boolean = true;
 
   h_value:number = 0;
   v_value:number = 0;

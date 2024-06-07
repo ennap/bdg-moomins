@@ -48,6 +48,7 @@ export class BracketComponent implements OnInit {
     }
   }
 
+  // for now hard-coded, ideally responsive (this function would calculate positions based on window size)
   calculatePositions(){
     var positions:Array<number[][][]> = [];
 

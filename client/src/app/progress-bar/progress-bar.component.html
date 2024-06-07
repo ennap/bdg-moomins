@@ -1,8 +1,18 @@
-<svg [attr.height]="height" [attr.width]="width" class="test">
+<svg [attr.height]="height" [attr.width]="width" class="position" *ngIf="down">
         <line x1="0" y1="0" [attr.x2]="width" y2="0" class="base"/>
         <line [attr.x1]="width" y1="0" [attr.x2]="width" [attr.y2]="height" class="base"/>
 
         <!-- this is the progress -->
-        <line [attr.x1]="width" y1="0" [attr.x2]="width" [attr.y2]="v_value" style="stroke:red;stroke-width:8"/>
-        <line x1="0" y1="0" [attr.x2]="h_value" y2="0" style="stroke:red;stroke-width:8"/>
+        <line [attr.x1]="width" y1="0" [attr.x2]="width" [attr.y2]="v_value" [style.stroke]="color" class = "progress"/>
+        <line x1="0" y1="0" [attr.x2]="h_value" y2="0" [style.stroke]="color" class = "progress"/>
 </svg>
+
+<svg [attr.height]="height" [attr.width]="width" class="position" *ngIf="!down">
+        <line x1="0" [attr.y1]="0+height" [attr.x2]="width" [attr.y2]="0+height" class="base"/>
+        <line [attr.x1]="width" [attr.y1]="height" [attr.x2]="width" [attr.y2]="0" class="base"/>
+
+        <!-- this is the progress -->
+        <line [attr.x1]="width" [attr.y1]="height" [attr.x2]="width" [attr.y2]="height-v_value" [style.stroke]="color" class = "progress"/>
+        <line x1="0" [attr.y1]="height" [attr.x2]="h_value" [attr.y2]="height" [style.stroke]="color" class = "progress"/>
+</svg>
+

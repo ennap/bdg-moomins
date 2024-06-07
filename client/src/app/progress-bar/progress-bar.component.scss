@@ -3,9 +3,13 @@
     stroke: #555454;
 }
 
-.test {
+.position {
     left: 266px;
     top: 164px;
     position: fixed;
     display: block;
+}
+
+.progress {
+    stroke-width: 8;
 }
