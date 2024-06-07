@@ -1,4 +1,12 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
-  }
+h1 {
+  font-family: 'Verdana';
+  font-size: 48px;
+  font-weight: 600;
+  color: #E02B28;
+  text-align: center;
+}
+
+.header {
+  margin-top: -40px;
+  margin-left: 32px;
+}

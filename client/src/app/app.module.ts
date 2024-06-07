@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ImageButtonComponent } from './image-button/image-button.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { BracketComponent } from './bracket/bracket.component';
+import { MobileVoteComponent } from './mobile-vote/mobile-vote.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { BracketComponent } from './bracket/bracket.component';
     TaskDialogComponent,
     ImageButtonComponent,
     ProgressBarComponent,
-    BracketComponent
+    BracketComponent,
+    MobileVoteComponent
   ],
   imports: [
     BrowserModule,
