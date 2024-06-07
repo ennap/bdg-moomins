@@ -6,11 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent implements OnInit{
-  width:number = 100;
-  height:number = 50;
+  @Input() width:number = 100;
+  @Input() height:number = 50;
 
-  match_total:number = 4;
-  votes:number = 1;
+  @Input() match_total:number = 4;
+  @Input() votes:number = 1;
 
   h_value:number = 0;
   v_value:number = 0;
