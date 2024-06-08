@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { BracketData, MatchData } from './bracket-data';
+import { BracketService } from '../bracket.service';
 
 @Component({
   selector: 'app-bracket',
   templateUrl: './bracket.component.html',
   styleUrls: ['./bracket.component.scss']
 })
-export class BracketComponent implements OnInit {
-  bracket = new BracketData(['assets/avatar.jpeg', 'assets/danny-phantom.jpeg', 'assets/fairly-odd.jpeg', 'assets/kim-possible.jpg', 'assets/phineas-and-ferb.jpg', 'assets/powerpuff-girls.jpeg', 'assets/scooby-doo.jpg', 'assets/spongebob.jpg', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png'])
-  winner_src = 'assets/empty.png';
-
+export class BracketComponent {
+  bracket = new BracketData([])
+  winner_src = '';
   current_round=0;
   current_match=0;
-  // will have to adjust votes to keep track of who's casting the votes too
   match_votes_1 = 0;
   match_votes_2 = 0;
 
-  ngOnInit(): void {
+  constructor(private bracketService: BracketService){
+    this.bracketService.getBracket.subscribe(b => this.bracket = b);
+    this.bracketService.getWinnerSrc.subscribe(ws => this.winner_src = ws);
+
+    this.bracketService.getCurrentRound.subscribe(cr => this.current_round = cr);
+    this.bracketService.getCurrentMatch.subscribe(cm => this.current_match = cm);
+
+    this.bracketService.getMatchVote1.subscribe(mv1 => this.match_votes_1 = mv1);
+    this.bracketService.getMatchVote2.subscribe(mv2 => this.match_votes_2 = mv2);
   }
 
   onClick(char_num: number){
