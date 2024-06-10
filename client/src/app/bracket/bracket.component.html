@@ -5,10 +5,9 @@
 
 <div class="header">
   <h1>2000'S CARTOONS</h1>
-  <a [routerLink] = "['/mobile']">go to mobile</a>
 </div>
   
-<app-image-button [src]="winner_src" x="642px" y="387px"></app-image-button>
+<app-image-button [src]="winner_src" x="642px" y="407px"></app-image-button>
 
 <div *ngFor="let round of bracket.getBracket(); index as i">
   <div *ngFor="let match of round; index as j">
@@ -22,7 +21,7 @@
         [right]="calculateBracketPositions()[i][j][k].right"
         [votes]="bracket.getCharVote(i, j, k)">
       </app-progress-bar>
-      <app-image-button [src]="item" (click)="onClick(k)" [x]="calculatePositions()[i][j][k][0] + 'px'" [y]="calculatePositions()[i][j][k][1] + 'px'"></app-image-button>
+      <app-image-button [src]="item" [x]="calculatePositions()[i][j][k][0] + 'px'" [y]="calculatePositions()[i][j][k][1] + 'px'"></app-image-button>
       <!-- <button [disabled]="i!=current_round ||  j!=current_match"(click)="onClick(k)">
         {{item}}
       </button> -->
