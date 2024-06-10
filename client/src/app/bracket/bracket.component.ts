@@ -130,8 +130,8 @@ export class BracketComponent {
 
     var round_3 = [];
     round_3.push([
-      {'x':550, 'y':472.5, 'width':92, 'height':4, 'down':true, 'right': true},
-      {'x':770, 'y':472.5, 'width':92, 'height':4, 'down':false, 'right': false}
+      {'x':550, 'y':472.5, 'width':92, 'height':5, 'down':true, 'right': true},
+      {'x':770, 'y':472.5, 'width':92, 'height':5, 'down':false, 'right': false}
     ])
     positions.push(round_3);
     
