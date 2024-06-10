@@ -37,20 +37,27 @@ export class BracketComponent {
     // temp number, should be based on participants
     // have to address ties also
     if (this.match_votes_1 + this.match_votes_2 == 8) {
+      this.bracket.updateVotes(this.current_round, this.current_match, char_num, [this.match_votes_1, this.match_votes_2])
+      this.bracketService.updateBracket(this.bracket);
+
       if (this.current_round == this.bracket.getRoundTotal()-1) {
         this.winner_src = this.bracket.getRound(this.current_round)[0].getWinning();
+        this.bracketService.updateWinnerSrc(this.winner_src);
       }
 
-      this.bracket.updateVotes(this.current_round, this.current_match, char_num, [this.match_votes_1, this.match_votes_2])
       this.bracket.updateNextRound(this.current_round, this.current_match)
+      this.bracketService.updateBracket(this.bracket);
 
       this.current_match += 1;
+      this.bracketService.updateCurrentMatch(this.current_match);
       this.match_votes_1 = 0;
       this.match_votes_2 = 0;
 
       if ((this.current_match > this.bracket.getRound(this.current_round).length - 1)) {
         this.current_round += 1;
+        this.bracketService.updateCurrentRound(this.current_round);
         this.current_match = 0;
+        this.bracketService.updateWinnerSrc(this.winner_src);
       }
     }
   }

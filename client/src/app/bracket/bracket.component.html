@@ -5,9 +5,9 @@
 
 <div class="header">
   <h1>2000'S CARTOONS</h1>
+  <a [routerLink] = "['/mobile']">go to mobile</a>
 </div>
   
-
 <app-image-button [src]="winner_src" x="642px" y="387px"></app-image-button>
 
 <div *ngFor="let round of bracket.getBracket(); index as i">

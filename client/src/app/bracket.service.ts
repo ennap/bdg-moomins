@@ -25,4 +25,19 @@ export class BracketService {
     getMatchVote2 = this.match_votes_2.asObservable();
 
     constructor(){}
+
+    updateBracket(bracket: BracketData) {
+        this.bracket_serv.next(bracket);
+    }
+
+    updateWinnerSrc(str: string){
+        this.winner_src.next(str);
+    }
+
+    updateCurrentRound(num: number){
+        this.current_round.next(num);
+    }
+    updateCurrentMatch(num: number){
+        this.current_match.next(num);
+    }
 }
