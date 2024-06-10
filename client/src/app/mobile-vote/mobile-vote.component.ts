@@ -8,7 +8,7 @@ import { BracketData } from '../bracket/bracket-data';
   styleUrls: ['./mobile-vote.component.scss']
 })
 export class MobileVoteComponent {
-  bracket = new BracketData([])
+  bracket = new BracketData([],[])
   winner_src = '';
   current_round=0;
   current_match=0;

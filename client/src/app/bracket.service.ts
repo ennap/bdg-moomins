@@ -6,7 +6,7 @@ import { BracketData } from "./bracket/bracket-data";
     providedIn: "root"
 })
 export class BracketService {
-    bracket = new BracketData(['assets/avatar.jpeg', 'assets/danny-phantom.jpeg', 'assets/fairly-odd.jpeg', 'assets/kim-possible.jpg', 'assets/phineas-and-ferb.jpg', 'assets/powerpuff-girls.jpeg', 'assets/scooby-doo.jpg', 'assets/spongebob.jpg', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png']);
+    bracket = new BracketData(['assets/avatar.jpeg', 'assets/danny-phantom.jpeg', 'assets/fairly-odd.jpeg', 'assets/kim-possible.jpg', 'assets/phineas-and-ferb.jpg', 'assets/powerpuff-girls.jpeg', 'assets/scooby-doo.jpg', 'assets/spongebob.jpg', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png', 'assets/empty.png'], ['#0695A8','#5AB8C5','#FF2295','#B1D035','#E94A06','#DB4252', '#F5B226','#FEEF00','#FF3C38','#FF3C38','#FF3C38','#FF3C38','#FF3C38','#FF3C38']);
     bracket_serv = new BehaviorSubject(this.bracket)
     getBracket = this.bracket_serv.asObservable();
     

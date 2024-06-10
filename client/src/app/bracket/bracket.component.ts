@@ -8,7 +8,7 @@ import { BracketService } from '../bracket.service';
   styleUrls: ['./bracket.component.scss']
 })
 export class BracketComponent {
-  bracket = new BracketData([])
+  bracket = new BracketData([],[])
   winner_src = '';
   current_round=0;
   current_match=0;

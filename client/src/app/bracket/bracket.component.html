@@ -19,7 +19,8 @@
         [y]="calculateBracketPositions()[i][j][k].y" 
         [down]="calculateBracketPositions()[i][j][k].down" 
         [right]="calculateBracketPositions()[i][j][k].right"
-        [votes]="bracket.getCharVote(i, j, k)">
+        [votes]="bracket.getCharVote(i, j, k)"
+        [color]="bracket.getColor(i, j, k)">
       </app-progress-bar>
       <app-image-button [src]="item" [x]="calculatePositions()[i][j][k][0] + 'px'" [y]="calculatePositions()[i][j][k][1] + 'px'"></app-image-button>
       <!-- <button [disabled]="i!=current_round ||  j!=current_match"(click)="onClick(k)">

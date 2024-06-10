@@ -1,8 +1,11 @@
+import { Color } from "@svgdotjs/svg.js";
+
 export class BracketData {
     bracket_data:Array<MatchData[]> = [];
+    color_data: Array<string[][]> = [];
 
     // going to have to change this if we let them pick where to place things
-    constructor(char_list:Array<string>) {
+    constructor(char_list:Array<string>, color_list:Array<string>) {
         var all_matches = [];
         for (let i = 0; i < char_list.length; i+=2) {
             all_matches.push(new MatchData(char_list[i], char_list[i+1]))
@@ -10,6 +13,15 @@ export class BracketData {
         this.bracket_data.push(all_matches.slice(0, 4));
         this.bracket_data.push(all_matches.slice(4, 6));
         this.bracket_data.push(all_matches.slice(6, 7));
+
+        var color_matches = [];
+        for (let i = 0; i < color_list.length; i+=2) {
+            color_matches.push([color_list[i], color_list[i+1]])
+        }
+        this.color_data.push(color_matches.slice(0, 4));
+        this.color_data.push(color_matches.slice(4, 6));
+        this.color_data.push(color_matches.slice(6, 7));
+
     }
 
     getRoundTotal(){
@@ -22,6 +34,10 @@ export class BracketData {
 
     getBracket(){
         return this.bracket_data;
+    }
+
+    getColor(round: number, match: number, item: number){
+        return this.color_data[round][match][item];
     }
 
     getCharVote(round: number, match: number, item: number) {
@@ -37,8 +53,13 @@ export class BracketData {
     }
 
     updateNextRound(round_num: number, match_num: number) {
+        var new_match = Math.floor(match_num/2);
+        var new_item_index = match_num%2;
+
         var winning_char = this.bracket_data[round_num][match_num].getWinning();
-        this.bracket_data[round_num + 1][Math.floor(match_num/2)].updateChar(match_num%2, winning_char);
+        this.bracket_data[round_num + 1][new_match].updateChar(new_item_index, winning_char);
+
+        this.color_data[round_num + 1][new_match][match_num%2] = this.getColor(round_num, match_num, this.bracket_data[round_num][match_num].getWinningItemIndex());
     }
 }
 
@@ -71,6 +92,16 @@ export class MatchData {
             return this.match_data[1];
         }
     }
+
+    getWinningItemIndex(){
+        if (this.char1_votes > this.char2_votes) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+
     updateVotes(char_num: number, votes: [number, number]){
         this.char1_votes = votes[0];
         this.char2_votes = votes[1];
