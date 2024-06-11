@@ -22,7 +22,7 @@
         [votes]="bracket.getCharVote(i, j, k)"
         [color]="bracket.getColor(i, j, k)">
       </app-progress-bar>
-      <app-image-button [src]="item" [flicker]="i!=0" [x]="calculatePositions()[i][j][k][0] + 'px'" [y]="calculatePositions()[i][j][k][1] + 'px'"></app-image-button>
+      <app-image-button (click)="openModal()"[src]="item" [flicker]="i!=0" [x]="calculatePositions()[i][j][k][0] + 'px'" [y]="calculatePositions()[i][j][k][1] + 'px'"></app-image-button>
       <!-- <button [disabled]="i!=current_round ||  j!=current_match"(click)="onClick(k)">
         {{item}}
       </button> -->

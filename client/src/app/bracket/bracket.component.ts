@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BracketData, MatchData } from './bracket-data';
 import { BracketService } from '../bracket.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ResultsModalComponent } from '../results-modal/results-modal.component';
 
 @Component({
   selector: 'app-bracket',
@@ -15,7 +17,7 @@ export class BracketComponent {
   match_votes_1 = 0;
   match_votes_2 = 0;
 
-  constructor(private bracketService: BracketService){
+  constructor(private bracketService: BracketService, public dialog: MatDialog){
     this.bracketService.getBracket.subscribe(b => this.bracket = b);
     this.bracketService.getWinnerSrc.subscribe(ws => this.winner_src = ws);
 
@@ -24,6 +26,10 @@ export class BracketComponent {
 
     this.bracketService.getMatchVote1.subscribe(mv1 => this.match_votes_1 = mv1);
     this.bracketService.getMatchVote2.subscribe(mv2 => this.match_votes_2 = mv2);
+  }
+
+  openModal(){
+    const results_modal = this.dialog.open(ResultsModalComponent);
   }
 
   // for now hard-coded, but would be responsive ideally (this function would calculate positions based on window size)

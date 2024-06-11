@@ -1,0 +1,44 @@
+#rectangle {
+    width:500px;
+    height:750px;
+    background: #6C8EAD;
+}
+
+h1 {
+    font-family: 'Verdana';
+    font-size: 48px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+.pie-chart {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: conic-gradient(
+        #E94A06 300deg,
+        #DB4252 60deg,
+    );
+    margin:auto;
+    margin-top: 100px;
+}
+
+#delete{
+    font-family: 'Verdana';
+    font-size: 48px;
+    font-weight: 600;
+    color: white;
+    margin-top: 140px;
+    margin-left: 150px;
+}
+
+#delete2{
+    font-family: 'Verdana';
+    font-size: 48px;
+    font-weight: 600;
+    color: white;
+    padding-top: 60px;
+    margin-left: 80px;
+}

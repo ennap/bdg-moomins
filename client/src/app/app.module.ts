@@ -21,6 +21,7 @@ import { ImageButtonComponent } from './image-button/image-button.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { BracketComponent } from './bracket/bracket.component';
 import { MobileVoteComponent } from './mobile-vote/mobile-vote.component';
+import { ResultsModalComponent } from './results-modal/results-modal.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MobileVoteComponent } from './mobile-vote/mobile-vote.component';
     ImageButtonComponent,
     ProgressBarComponent,
     BracketComponent,
-    MobileVoteComponent
+    MobileVoteComponent,
+    ResultsModalComponent
   ],
   imports: [
     BrowserModule,
