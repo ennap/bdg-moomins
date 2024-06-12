@@ -24,6 +24,9 @@ export class BracketService {
     getMatchVote1 = this.match_votes_1.asObservable();
     getMatchVote2 = this.match_votes_2.asObservable();
 
+    game_complete = new BehaviorSubject(false);
+    getGameComplete = this.game_complete.asObservable();
+
     constructor(){}
 
     updateBracket(bracket: BracketData) {
@@ -39,5 +42,9 @@ export class BracketService {
     }
     updateCurrentMatch(num: number){
         this.current_match.next(num);
+    }
+
+    updateGameComplete(complete: boolean){
+        this.game_complete.next(complete);
     }
 }

@@ -14,6 +14,7 @@ export class MobileVoteComponent {
   current_match=0;
   match_votes_1 = 0;
   match_votes_2 = 0;
+  game_complete = false;
 
   constructor(private bracketService: BracketService){
     this.bracketService.getBracket.subscribe(b => this.bracket = b);
@@ -24,6 +25,7 @@ export class MobileVoteComponent {
 
     this.bracketService.getMatchVote1.subscribe(mv1 => this.match_votes_1 = mv1);
     this.bracketService.getMatchVote2.subscribe(mv2 => this.match_votes_2 = mv2);
+    this.bracketService.getGameComplete.subscribe(g => this.game_complete = g);
   }
 
 
@@ -44,6 +46,7 @@ export class MobileVoteComponent {
       if (this.current_round == this.bracket.getRoundTotal()-1) {
         this.winner_src = this.bracket.getRound(this.current_round)[0].getWinning();
         this.bracketService.updateWinnerSrc(this.winner_src);
+        this.bracketService.updateGameComplete(true);
       }
 
       this.bracket.updateNextRound(this.current_round, this.current_match)

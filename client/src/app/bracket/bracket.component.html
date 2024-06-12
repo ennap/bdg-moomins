@@ -5,6 +5,10 @@
 
 <div class="header">
   <h1>2000'S CARTOONS</h1>
+  <p *ngIf="game_complete"> 
+    Check out how everyone voted! <br>
+    (Click on the match players for game stats.)
+  </p>
 </div>
   
 <app-image-button [src]="winner_src" x="642px" y="407px"></app-image-button>
