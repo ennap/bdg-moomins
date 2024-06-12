@@ -1,0 +1,34 @@
+.alignment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.card{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -31em;
+    margin-left: -1em;
+    width: 9.1em;
+    height: 14.1em;
+    cursor: grab;
+    border-radius: .7em;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    box-shadow: .1em .1em .7em #353535;
+    z-index: 4;
+}
+
+.card img{
+
+    width: 10.5em;
+    height: 8.5em;
+
+}

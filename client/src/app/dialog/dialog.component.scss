@@ -1,0 +1,32 @@
+h1{   
+    font-weight: 2em;
+    color: #A23E48;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+    height: 3em;
+    width: 3em;
+    background-color: #e88344;
+    border-radius: 2em;
+}
+
+mat-icon{
+    color: #ffffff;
+    margin-bottom: -.2em;
+}
+
+button:hover{
+    
+    opacity: 0.7;
+    transition: 0.3s;
+}

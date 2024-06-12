@@ -21,6 +21,12 @@ import { BracketComponent } from './bracket/bracket.component';
 import { MobileVoteComponent } from './mobile-vote/mobile-vote.component';
 import { ResultsModalComponent } from './results-modal/results-modal.component';
 import { NgChartsModule } from 'ng2-charts';
+import { PlusCardComponent } from './plus-card/plus-card.component';
+import { SwitchCardComponent } from './switch-card/switch-card.component';
+import { VetoCardComponent } from './veto-card/veto-card.component';
+import { PlayerIconsComponent } from './player-icons/player-icons.component';
+import { InfoButtonComponent } from './info-button/info-button.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 
@@ -33,7 +39,13 @@ import { NgChartsModule } from 'ng2-charts';
     ProgressBarComponent,
     BracketComponent,
     MobileVoteComponent,
-    ResultsModalComponent
+    ResultsModalComponent,
+    PlusCardComponent,
+    SwitchCardComponent,
+    VetoCardComponent,
+    PlayerIconsComponent,
+    InfoButtonComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
