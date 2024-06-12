@@ -28,8 +28,8 @@ export class BracketComponent {
     this.bracketService.getMatchVote2.subscribe(mv2 => this.match_votes_2 = mv2);
   }
 
-  openModal(){
-    const results_modal = this.dialog.open(ResultsModalComponent);
+  openModal(round_num: number, match_num: number){
+    const results_modal = this.dialog.open(ResultsModalComponent, {data: {round: round_num, match: match_num}});
   }
 
   // for now hard-coded, but would be responsive ideally (this function would calculate positions based on window size)

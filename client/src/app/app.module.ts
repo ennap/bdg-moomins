@@ -22,6 +22,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { BracketComponent } from './bracket/bracket.component';
 import { MobileVoteComponent } from './mobile-vote/mobile-vote.component';
 import { ResultsModalComponent } from './results-modal/results-modal.component';
+import { BaseChartDirective, NgChartsModule } from 'ng2-charts';
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { ResultsModalComponent } from './results-modal/results-modal.component';
     MatInputModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

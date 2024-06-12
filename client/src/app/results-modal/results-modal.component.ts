@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { BracketService } from '../bracket.service';
 import { BracketData } from '../bracket/bracket-data';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+  round: number;
+  match: number;
+}
 
 @Component({
   selector: 'app-results-modal',
@@ -9,20 +15,62 @@ import { BracketData } from '../bracket/bracket-data';
 })
 export class ResultsModalComponent {
   bracket = new BracketData([],[])
-  winner_src = '';
-  current_round=0;
-  current_match=0;
-  match_votes_1 = 0;
-  match_votes_2 = 0;
 
-  constructor(private bracketService: BracketService){
+  selected_round: number;
+  selected_match: number;
+
+  chart_data: any;
+
+  constructor(private bracketService: BracketService, @Inject(MAT_DIALOG_DATA) public data: DialogData){
     this.bracketService.getBracket.subscribe(b => this.bracket = b);
-    this.bracketService.getWinnerSrc.subscribe(ws => this.winner_src = ws);
+    this.selected_round = data.round;
+    this.selected_match = data.match;
 
-    this.bracketService.getCurrentRound.subscribe(cr => this.current_round = cr);
-    this.bracketService.getCurrentMatch.subscribe(cm => this.current_match = cm);
+    this.chart_data = {
+      datasets: [{
+        data: [this.bracket.getCharVote(this.selected_round, this.selected_match, 0), this.bracket.getCharVote(this.selected_round, this.selected_match, 1)],
+        backgroundColor: [this.bracket.getColor(this.selected_round, this.selected_match, 0), this.bracket.getColor(this.selected_round, this.selected_match, 1)]
+      }]
+    }
 
-    this.bracketService.getMatchVote1.subscribe(mv1 => this.match_votes_1 = mv1);
-    this.bracketService.getMatchVote2.subscribe(mv2 => this.match_votes_2 = mv2);
-  }
-}
+  //   this.chartOptions = {
+  //     series: [this.bracket.getCharVote(this.selected_round, this.selected_match, 0), this.bracket.getCharVote(this.selected_round, this.selected_match, 1)],
+  //     chart: {width: 380, type: "pie"},
+  //     colors: [this.bracket.getColor(this.selected_round, this.selected_match, 0), this.bracket.getColor(this.selected_round, this.selected_match, 1)],
+  //     fill: {
+  //       type: 'image',
+  //       opacity: 1.0, 
+  //       image: {
+  //         src: [this.bracket.getCharString(this.selected_round, this.selected_match, 0), this.bracket.getCharString(this.selected_round, this.selected_match, 1)],
+  //         width: 25,
+  //         imagedHeight: 25
+  //       }
+  //     },
+  //     stroke: {
+  //       width: 4
+  //     },
+  //     dataLabels: {
+  //       enabled: false,
+  //       style: {
+  //         colors: ['#111']
+  //       },
+  //       background: {
+  //         enabled: true,
+  //         foreColor: '#fff',
+  //         borderWidth: 0
+  //       }
+  //     },
+  //     responsive: [{
+  //       breakpoint: 480,
+  //       options: {
+  //         chart: {
+  //           width: 200
+  //         },
+  //         legend: {
+  //           position: 'bottom'
+  //         }
+  //       }
+  //     }]
+  //     };
+  // }
+}}
