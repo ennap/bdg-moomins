@@ -33,7 +33,7 @@ export class BracketComponent {
   }
 
   openModal(round_num: number, match_num: number){
-    const results_modal = this.dialog.open(ResultsModalComponent, {data: {round: round_num, match: match_num}});
+    const results_modal = this.dialog.open(ResultsModalComponent, {data: {round: round_num, match: match_num}, position: {left: '40px'}});
   }
 
   // for now hard-coded, but would be responsive ideally (this function would calculate positions based on window size)

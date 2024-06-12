@@ -14,7 +14,7 @@ export class InfoButtonComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '250px',
+      width: '250px', position: {right: '100px'}
     });
 
     dialogRef.afterClosed().subscribe(result => {
