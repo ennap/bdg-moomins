@@ -15,6 +15,7 @@ export class MobileVoteComponent {
   match_votes_1 = 0;
   match_votes_2 = 0;
   game_complete = false;
+  switch_screen = false;
 
   constructor(private bracketService: BracketService){
     this.bracketService.getBracket.subscribe(b => this.bracket = b);

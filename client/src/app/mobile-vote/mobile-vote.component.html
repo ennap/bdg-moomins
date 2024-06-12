@@ -1,15 +1,20 @@
 <div id="phone-bg">
-    <h1>PLACE YOUR VOTES</h1>
-    <app-image-button (click)="onClick(0)" [src]="bracket.getCharString(current_round, current_match, 0)" [flicker]="false" x="94px" y="165px" size="250"></app-image-button>
-    <app-image-button (click)="onClick(1)" [src]="bracket.getCharString(current_round, current_match, 1)" [flicker]="false" x="94px" y="440px" size="250"></app-image-button>
+    <h1 *ngIf="!switch_screen">PLACE YOUR VOTES</h1>
+    <h1 *ngIf="switch_screen">SWITCH <br>PLAYERS</h1>
 
-    <p id="temp-player">
-        Player {{match_votes_1 + match_votes_2}}/8
-    </p>
-
-    <!-- <app-player-icons></app-player-icons> -->
-    <app-switch-card></app-switch-card>
+    <app-player-icons *ngIf="switch_screen"></app-player-icons>
+    <app-switch-card (click)="switch_screen=true"></app-switch-card>
     <app-plus-card></app-plus-card>
-    <app-veto-card></app-veto-card>
+    <app-veto-card (click)="switch_screen=false"></app-veto-card>
     <app-info-button></app-info-button>
+    
+    <div *ngIf="!switch_screen">
+        <app-image-button (click)="onClick(0)" [src]="bracket.getCharString(current_round, current_match, 0)" [flicker]="false" x="94px" y="165px" size="250"></app-image-button>
+        <app-image-button (click)="onClick(1)" [src]="bracket.getCharString(current_round, current_match, 1)" [flicker]="false" x="94px" y="440px" size="250"></app-image-button>
+
+        <p id="temp-player">
+            Player {{match_votes_1 + match_votes_2}}/8
+        </p>
+    </div>
+
 </div>
