@@ -19,7 +19,7 @@ export class ResultsModalComponent {
   selected_round: number;
   selected_match: number;
 
-  chart_data: any;
+  chart_data: any; 
 
   constructor(private bracketService: BracketService, @Inject(MAT_DIALOG_DATA) public data: DialogData){
     this.bracketService.getBracket.subscribe(b => this.bracket = b);
