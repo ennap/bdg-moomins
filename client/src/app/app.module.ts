@@ -15,8 +15,6 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ImageButtonComponent } from './image-button/image-button.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { BracketComponent } from './bracket/bracket.component';
@@ -49,8 +47,6 @@ import { BaseChartDirective, NgChartsModule } from 'ng2-charts';
     MatDialogModule,
     MatInputModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
     NgChartsModule
   ],
   providers: [],
